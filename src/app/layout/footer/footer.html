@@ -1,0 +1,35 @@
+<footer class="border-t border-slate-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <div class="text-base font-extrabold text-slate-900">TrampsAviation</div>
+        <p class="mt-2 text-sm text-slate-600">
+          Demo Flight + Hotel booking UI. Search is free, booking requires login.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-sm font-bold text-slate-900">Explore</div>
+        <div class="mt-3 grid gap-2 text-sm">
+          <a routerLink="/flights" class="text-slate-600 hover:text-slate-900">Flights</a>
+          <a routerLink="/hotels" class="text-slate-600 hover:text-slate-900">Hotels</a>
+          <a routerLink="/login" class="text-slate-600 hover:text-slate-900">Login</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-sm font-bold text-slate-900">Legal</div>
+        <div class="mt-3 grid gap-2 text-sm">
+          <a routerLink="/terms" class="text-slate-600 hover:text-slate-900">Terms & Conditions</a>
+          <a routerLink="/privacy" class="text-slate-600 hover:text-slate-900">Privacy Policy</a>
+          <a routerLink="/refund-policy" class="text-slate-600 hover:text-slate-900">Refund & Cancellation</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 md:flex-row md:items-center md:justify-between">
+      <div class="text-xs text-slate-500">© {{ year }} TrampsAviation. All rights reserved.</div>
+      <div class="text-xs text-slate-500">For demo only. Real bookings will use provider APIs via backend.</div>
+    </div>
+  </div>
+</footer>
