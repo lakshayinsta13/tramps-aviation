@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../core/auth/auth.service';
 
 type FlightResult = {
   airline: string;
@@ -32,7 +31,7 @@ export class Flights {
   sort: 'price' | 'depart' = 'price';
   results: FlightResult[] = [];
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private router: Router) { }
 
   onSearch() {
     this.error = '';
@@ -60,22 +59,6 @@ export class Flights {
   }
 
   book(f: FlightResult) {
-    // if user not logged in, send to login then redirect to booking
-    if (!this.auth.isLoggedIn()) {
-      this.router.navigate(['/login'], {
-        queryParams: {
-          redirect: '/flights/booking',
-          type: 'flight',
-          id: f.flightNo,
-          from: this.from,
-          to: this.to,
-          date: this.date
-        }
-      });
-      return;
-    }
-
-    // if logged in, go to booking page directly
     this.router.navigate(['/flights/booking'], {
       queryParams: {
         id: f.flightNo,
@@ -85,5 +68,4 @@ export class Flights {
       }
     });
   }
-
 }

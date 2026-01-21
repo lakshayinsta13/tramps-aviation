@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../core/auth/auth.service';
 
 type HotelResult = {
   name: string;
@@ -31,7 +30,7 @@ export class Hotels {
   nights = 1;
   results: HotelResult[] = [];
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private router: Router) { }
 
   onSearch() {
     this.error = '';
@@ -63,20 +62,6 @@ export class Hotels {
   }
 
   book(h: HotelResult) {
-    if (!this.auth.isLoggedIn()) {
-      this.router.navigate(['/login'], {
-        queryParams: {
-          redirect: '/hotels/booking',
-          type: 'hotel',
-          id: h.name,
-          city: this.city,
-          checkIn: this.checkIn,
-          checkOut: this.checkOut
-        }
-      });
-      return;
-    }
-
     this.router.navigate(['/hotels/booking'], {
       queryParams: {
         id: h.name,
@@ -86,5 +71,4 @@ export class Hotels {
       }
     });
   }
-
 }

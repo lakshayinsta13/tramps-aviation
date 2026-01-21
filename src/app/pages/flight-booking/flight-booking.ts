@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../core/auth/auth.service';
 
 type Pax = {
   title: 'Mr' | 'Ms' | 'Mrs';
@@ -19,13 +18,11 @@ type Pax = {
   styleUrl: './flight-booking.scss',
 })
 export class FlightBooking {
-  // from query params (demo)
   flightId = '';
   from = '';
   to = '';
   date = '';
 
-  // form
   pax: Pax[] = [{ title: 'Mr', firstName: '', lastName: '', dob: '' }];
   email = '';
   phone = '';
@@ -34,15 +31,10 @@ export class FlightBooking {
   error = '';
 
   constructor(
-    private auth: AuthService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    if (!this.auth.isLoggedIn()) {
-      this.router.navigate(['/login'], { queryParams: { redirect: '/flights/booking' } });
-      return;
-    }
-
+    // ✅ Guard already ensures user is logged in
     this.flightId = this.route.snapshot.queryParamMap.get('id') || '';
     this.from = this.route.snapshot.queryParamMap.get('from') || '';
     this.to = this.route.snapshot.queryParamMap.get('to') || '';
@@ -80,7 +72,6 @@ export class FlightBooking {
       return;
     }
 
-    // demo store booking
     const bookingId = 'TA' + Math.floor(100000 + Math.random() * 900000);
     localStorage.setItem('ta_last_booking', JSON.stringify({
       type: 'flight',
