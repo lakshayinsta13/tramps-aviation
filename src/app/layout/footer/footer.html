@@ -1,35 +1,101 @@
-<footer class="border-t border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-    <div class="grid gap-8 md:grid-cols-3">
+<footer class="bg-slate-50 border-t border-slate-200">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Top section -->
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
       <div>
-        <div class="text-base font-extrabold text-slate-900">TrampsAviation</div>
-        <p class="mt-2 text-sm text-slate-600">
-          Demo Flight + Hotel booking UI. Search is free, booking requires login.
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white font-extrabold">
+            TA
+          </div>
+          <span class="text-lg font-extrabold text-slate-900">TrampsAviation</span>
+        </div>
+
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+          Demo flight & hotel booking platform.
+          Search is free, booking requires login.
         </p>
-      </div>
 
-      <div>
-        <div class="text-sm font-bold text-slate-900">Explore</div>
-        <div class="mt-3 grid gap-2 text-sm">
-          <a routerLink="/flights" class="text-slate-600 hover:text-slate-900">Flights</a>
-          <a routerLink="/hotels" class="text-slate-600 hover:text-slate-900">Hotels</a>
-          <a routerLink="/login" class="text-slate-600 hover:text-slate-900">Login</a>
+        <div class="mt-4 text-xs text-slate-500">
+          Built for demo & UI testing
         </div>
       </div>
 
+      <!-- Explore -->
       <div>
-        <div class="text-sm font-bold text-slate-900">Legal</div>
-        <div class="mt-3 grid gap-2 text-sm">
-          <a routerLink="/terms" class="text-slate-600 hover:text-slate-900">Terms & Conditions</a>
-          <a routerLink="/privacy" class="text-slate-600 hover:text-slate-900">Privacy Policy</a>
-          <a routerLink="/refund-policy" class="text-slate-600 hover:text-slate-900">Refund & Cancellation</a>
+        <div class="text-sm font-extrabold text-slate-900 tracking-wide">
+          Explore
         </div>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>
+            <a routerLink="/flights" class="text-slate-600 hover:text-slate-900 transition">
+              ✈ Flights
+            </a>
+          </li>
+          <li>
+            <a routerLink="/hotels" class="text-slate-600 hover:text-slate-900 transition">
+              🏨 Hotels
+            </a>
+          </li>
+          <li>
+            <a routerLink="/login" class="text-slate-600 hover:text-slate-900 transition">
+              🔐 Login
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <div class="text-sm font-extrabold text-slate-900 tracking-wide">
+          Legal
+        </div>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>
+            <a routerLink="/terms" class="text-slate-600 hover:text-slate-900 transition">
+              Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a routerLink="/privacy" class="text-slate-600 hover:text-slate-900 transition">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a routerLink="/refund-policy" class="text-slate-600 hover:text-slate-900 transition">
+              Refund & Cancellation
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Trust / Info -->
+      <div>
+        <div class="text-sm font-extrabold text-slate-900 tracking-wide">
+          Information
+        </div>
+        <ul class="mt-4 space-y-3 text-sm text-slate-600">
+          <li>✔ Secure demo UI</li>
+          <li>✔ API-ready architecture</li>
+          <li>✔ Scalable booking flow</li>
+          <li class="text-xs text-slate-500">
+            Provider APIs (TBO/GDS) will be used in production
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div class="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 md:flex-row md:items-center md:justify-between">
-      <div class="text-xs text-slate-500">© {{ year }} TrampsAviation. All rights reserved.</div>
-      <div class="text-xs text-slate-500">For demo only. Real bookings will use provider APIs via backend.</div>
+    <!-- Bottom bar -->
+    <div
+      class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <div class="text-xs text-slate-500">
+        © {{ year }} <span class="font-semibold text-slate-700">TrampsAviation</span>.
+        All rights reserved.
+      </div>
+
+      <div class="text-xs text-slate-500">
+        Demo only • No real bookings or payments
+      </div>
     </div>
   </div>
 </footer>

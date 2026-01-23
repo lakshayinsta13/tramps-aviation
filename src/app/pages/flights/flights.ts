@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BookingNavComponent } from '../../layout/booking-nav/booking-nav';
+import { OffersComponent } from '../../layout/offers/offers';
+import { PromotionsComponent } from '../../layout/promotions/promotions';
 
 type FlightResult = {
   airline: string;
@@ -16,7 +19,7 @@ type FlightResult = {
 @Component({
   selector: 'app-flights',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,BookingNavComponent,OffersComponent,PromotionsComponent],
   templateUrl: './flights.html',
   styleUrl: './flights.scss',
 })

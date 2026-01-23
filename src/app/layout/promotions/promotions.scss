@@ -1,0 +1,23 @@
+.promo-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-card::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.18), transparent 45%),
+              radial-gradient(circle at 80% 10%, rgba(14, 165, 233, 0.14), transparent 40%);
+  transform: translate3d(0,0,0);
+  pointer-events: none;
+}
+
+.tag {
+  background: rgba(15, 23, 42, 0.92);
+  color: white;
+}
+
+.promo-card:hover {
+  transform: translateY(-2px);
+}

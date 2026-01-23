@@ -1,0 +1,72 @@
+<section class="mt-8">
+  <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <div class="text-xl font-extrabold text-slate-900">Promotions</div>
+      <div class="text-sm text-slate-600">
+        TrampsAviation specials — bundles, fee waivers & spotlight deals
+      </div>
+    </div>
+
+    <div class="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-500">
+      <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1">
+        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+        Verified promos
+      </span>
+      <span class="text-slate-300">•</span>
+      <span>Demo now, real later</span>
+    </div>
+  </div>
+
+  <div class="mt-4 grid gap-4 lg:grid-cols-3">
+    <div
+      *ngFor="let p of promos"
+      class="promo-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-lg"
+    >
+      <!-- Top -->
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="text-base font-extrabold text-slate-900">{{ p.title }}</div>
+          <div class="mt-1 text-sm text-slate-600">{{ p.subtitle }}</div>
+        </div>
+
+        <span class="tag rounded-full px-3 py-1 text-xs font-extrabold">
+          {{ p.tag }}
+        </span>
+      </div>
+
+      <!-- Divider -->
+      <div class="my-4 h-px bg-slate-100"></div>
+
+      <!-- Perks -->
+      <ul class="space-y-2">
+        <li *ngFor="let perk of p.perks" class="flex items-start gap-2 text-sm text-slate-700">
+          <span class="mt-1 inline-block h-2 w-2 rounded-full bg-indigo-600"></span>
+          <span>{{ perk }}</span>
+        </li>
+      </ul>
+
+      <!-- CTAs -->
+      <div class="mt-5 flex flex-col gap-2">
+        <button
+          (click)="go(p.primaryCta.link)"
+          class="rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-extrabold text-white hover:bg-slate-800"
+        >
+          {{ p.primaryCta.label }}
+        </button>
+
+        <button
+          *ngIf="p.secondaryCta"
+          (click)="go(p.secondaryCta.link)"
+          class="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-extrabold text-slate-900 hover:bg-slate-50"
+        >
+          {{ p.secondaryCta.label }}
+        </button>
+      </div>
+
+      <!-- Footer hint -->
+      <div class="mt-3 text-xs text-slate-500">
+        Prices & coupons are demo. Real offers appear after API integration.
+      </div>
+    </div>
+  </div>
+</section>

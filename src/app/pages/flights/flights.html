@@ -1,4 +1,7 @@
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+  <app-booking-nav></app-booking-nav>
+  <!-- your hotel UI -->
+
   <div class="rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-900 p-6 sm:p-10 text-white shadow-lg">
     <div class="max-w-2xl">
       <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Search Flights</h1>
@@ -12,25 +15,25 @@
         <div>
           <label class="text-xs font-semibold text-white/80">From</label>
           <input [(ngModel)]="from" placeholder="DEL"
-                 class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
+            class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
         </div>
 
         <div>
           <label class="text-xs font-semibold text-white/80">To</label>
           <input [(ngModel)]="to" placeholder="BOM"
-                 class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
+            class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
         </div>
 
         <div>
           <label class="text-xs font-semibold text-white/80">Departure</label>
           <input [(ngModel)]="date" type="date"
-                 class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
+            class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40" />
         </div>
 
         <div>
           <label class="text-xs font-semibold text-white/80">Passengers</label>
           <select [(ngModel)]="pax"
-                  class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40">
+            class="mt-1 w-full rounded-xl bg-white/90 px-3 py-2 text-slate-900 outline-none focus:ring-2 focus:ring-white/40">
             <option [ngValue]="1">1</option>
             <option [ngValue]="2">2</option>
             <option [ngValue]="3">3</option>
@@ -40,7 +43,7 @@
 
         <div class="flex items-end">
           <button (click)="onSearch()"
-                  class="w-full rounded-xl bg-white px-4 py-2.5 font-bold text-slate-900 hover:bg-slate-100 shadow-sm">
+            class="w-full rounded-xl bg-white px-4 py-2.5 font-bold text-slate-900 hover:bg-slate-100 shadow-sm">
             Search
           </button>
         </div>
@@ -62,7 +65,7 @@
       </div>
 
       <select [(ngModel)]="sort" (ngModelChange)="applySort()"
-              class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700">
+        class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700">
         <option value="price">Sort: Price</option>
         <option value="depart">Sort: Departure</option>
       </select>
@@ -70,7 +73,7 @@
 
     <div class="mt-4 grid gap-4">
       <div *ngFor="let f of results"
-           class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition">
+        class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-3">
             <div class="h-12 w-12 rounded-2xl bg-slate-900 text-white grid place-items-center font-black">
@@ -99,7 +102,7 @@
             </div>
 
             <button (click)="book(f)"
-                    class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-bold text-white hover:bg-slate-800">
+              class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-bold text-white hover:bg-slate-800">
               Book
             </button>
           </div>
@@ -111,4 +114,6 @@
       </div>
     </div>
   </div>
+  <app-offers mode="flights"></app-offers>
+  <app-promotions context="flights"></app-promotions>
 </div>

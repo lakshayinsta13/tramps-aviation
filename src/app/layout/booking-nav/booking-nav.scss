@@ -1,0 +1,80 @@
+.nav-bar {
+  width: 100%;
+  max-width: 1150px; /* a bit wider */
+  margin: 0 auto 18px;
+  border-radius: 30px;
+  background: #0b1226;
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+  overflow: hidden;
+  position: relative;
+  padding: 18px; /* makes frame taller */
+}
+
+/* ✅ plane lane - close to buttons but inside frame */
+.air-lane {
+  position: relative;
+  height: 34px;         /* keeps plane near text */
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* ✅ buttons lane */
+.btn-lane {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons */
+.nav-item {
+  border: 0;
+  cursor: pointer;
+  color: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.09);
+  font-weight: 900;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 18px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.nav-item:hover { background: rgba(255,255,255,.14); transform: translateY(-1px); }
+.nav-item:active { transform: translateY(0px) scale(.99); }
+
+.nav-item.active {
+  background: #fff;
+  color: #0b1226;
+}
+
+/* ✅ Plane stays inside lane and slightly above buttons */
+.plane {
+  position: absolute;
+  left: 0;
+  top: 70%; /* closer to buttons */
+  transform: translate(-50%, -50%) rotate(0deg);
+  font-size: 22px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ✅ Trail is invisible at start, appears after takeoff */
+.trail {
+  position: absolute;
+  top: 70%;
+  height: 2px;
+  left: 0;
+  width: 0;
+  opacity: 0;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.6),
+    rgba(255,255,255,0)
+  );
+  border-radius: 999px;
+  pointer-events: none;
+  will-change: left, width, opacity;
+  transition: opacity 180ms ease;
+}

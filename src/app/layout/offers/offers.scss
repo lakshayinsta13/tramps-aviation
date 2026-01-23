@@ -1,0 +1,27 @@
+.offers-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.offers-scroll::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.25);
+    border-radius: 999px;
+}
+
+.offers-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+:host {
+    position: relative;
+}
+
+:host::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 42px;
+    width: 40px;
+    height: calc(100% - 42px);
+    pointer-events: none;
+    background: linear-gradient(to left, #ffffff, transparent);
+}

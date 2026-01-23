@@ -1,0 +1,20 @@
+<div class="nav-bar" #bar>
+    <!-- Air lane (plane flies here) -->
+    <div class="air-lane" aria-hidden="true">
+        <div class="trail" #trail></div>
+        <div class="plane" #plane>✈</div>
+    </div>
+
+    <!-- Buttons lane -->
+    <div class="btn-lane">
+        <button #flightsBtn class="nav-item" type="button" (click)="flyTo('flights')"
+            [class.active]="active === 'flights'">
+            ✈ Flights
+        </button>
+
+        <button #hotelsBtn class="nav-item" type="button" (click)="flyTo('hotels')"
+            [class.active]="active === 'hotels'">
+            🏨 Hotels
+        </button>
+    </div>
+</div>
